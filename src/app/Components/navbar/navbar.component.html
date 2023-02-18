@@ -1,0 +1,25 @@
+<div class="padre" (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'">
+  <div class="hijo">
+    <nav id="my-first">
+      <ul>
+        <li class="logotype">
+          <a href="#">Axel_Dev</a>
+        </li>
+
+        <li class="burger" (click)="toggleMenu()">
+          <!-- <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i> -->
+          <picture>
+            <img src="assets/img/588a6507d06f6719692a2d15.png" alt="menu-icon">
+          </picture>
+        </li>
+
+        <li class="menu" [class.is-open]="isMenuOpen">
+          <a class="menu-item" href="">home</a>
+          <a class="menu-item" href="">about Me</a>
+          <a class="menu-item" href="">proyects</a>
+          <a class="menu-item" href="">contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
