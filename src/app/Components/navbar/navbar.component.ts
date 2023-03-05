@@ -8,15 +8,18 @@ import { Component, OnInit ,HostListener } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  isMenuOpen = false;
   constructor() { }
+
+  isMenuOpen = false;
 
   ngOnInit(): void {
   }
 
+  //for responsive
   toggleMenu(){
     this.isMenuOpen = !this.isMenuOpen;
   }
+
 
   navbarfixed:boolean = false;
 
@@ -28,6 +31,13 @@ export class NavbarComponent implements OnInit {
     else
     {
       this.navbarfixed = false;
+    }
+  }
+
+  scrollToSection(section: string) {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
 

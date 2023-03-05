@@ -1,5 +1,5 @@
 $menuHeight: 60px;
-$menuBreakpoint: 768px;//768px;
+$menuBreakpoint: 768px; //768px;
 
 /*this area is for fixed navbar*/
 .fixed {
@@ -17,7 +17,7 @@ $menuBreakpoint: 768px;//768px;
 
 /*this area is for adjusting little things*/
 
-.padre{
+.padre {
   display: flex;
   background-color: rgba(54, 54, 54, 0.8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
@@ -27,9 +27,9 @@ $menuBreakpoint: 768px;//768px;
   justify-content: center;
 }
 
-#my-first{
-  ul{
-    margin:0;
+#my-first {
+  ul {
+    margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
@@ -37,28 +37,54 @@ $menuBreakpoint: 768px;//768px;
     list-style: none;
   }
 
-  .logotype{
-    a{
+  .logotype {
+    a {
       padding: 0 8px;
       font-size: 1.4rem;
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.774)
+      color: rgba(255, 255, 255, 0.774);
     }
   }
 
-  .burger{
+  /* //animacion para la navbar */
+
+  .navigation {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+  }
+
+  .navigation:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(204, 164, 59);
+    height: 3px;
+    width: 0;
+    left: 10px;
+    bottom: 15px;
+    transition: 0.3s;
+  }
+
+  .navigation:hover:after {
+    width: 80%;
+  }
+
+  .burger {
     padding: 0 10px;
     // border-left: 1px  solid rgb(36, 47, 64);
     // border: 1px solid rgb(36, 47, 64);
     display: none;
     cursor: pointer;
 
-    i{
+    i {
       color: rgb(204, 164, 59);
+      font-size: 30px;
       line-height: $menuHeight;
     }
 
-    img{
+    img {
       color: rgb(204, 164, 59);
       line-height: $menuHeight;
       width: 20px;
@@ -67,33 +93,39 @@ $menuBreakpoint: 768px;//768px;
 
     // esta parte hace que el menu se oculte
     // cuando es menor al breackpoint
-    @media (max-width: $menuBreakpoint){
+    //this part makes menu hide once is less than breackpoint
+    @media (max-width: $menuBreakpoint) {
       display: block;
       margin-left: 50%;
     }
-
   }
 
-  .menu{
+  .menu {
     display: flex;
     align-items: center;
 
     //esta parte aparescan los li que sobran
     //a la hora de pasar el breakpoint
-    @media (max-width: $menuBreakpoint){
+    //this part causes li to appear and the animation to stop
+    //once the menu hits the breakpoint
+    @media (max-width: $menuBreakpoint) {
       display: none;
 
-      &.is-open{
+      &.is-open {
         display: block;
         position: absolute;
-        top: #{$menuHeight - 25};
-        // right: 0px;
+        top: #{$menuHeight};
+
         left: 50%;
-        background:rgba(54, 54, 54, 0.911);
+        background: rgba(54, 54, 54, 0.911);
         width: 50%;
 
-        .menu-item{
+        .menu-item {
           border-bottom: 1px solid rgb(229, 229, 229);
+        }
+
+        .navigation:hover:after {
+          width: 0;
         }
       }
     }

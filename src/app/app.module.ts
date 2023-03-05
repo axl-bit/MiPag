@@ -12,6 +12,7 @@ import { PerfilComponent } from './Components/perfil/perfil.component';
 import { MoreAboutMeComponent } from './Components/more-about-me/more-about-me.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ProyectsComponent } from './Components/proyects/proyects.component';
+import { ContactmeComponent } from './Components/contactme/contactme.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProyectsComponent } from './Components/proyects/proyects.component';
     PerfilComponent,
     MoreAboutMeComponent,
     FooterComponent,
-    ProyectsComponent
+    ProyectsComponent,
+    ContactmeComponent
   ],
   imports: [
     BrowserModule,

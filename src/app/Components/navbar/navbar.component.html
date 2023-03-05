@@ -1,3 +1,5 @@
+
+
 <div class="padre" (scroll)="onscroll()" [ngClass]="navbarfixed?'fixed':'nofixed'">
   <div class="hijo">
     <nav id="my-first">
@@ -7,17 +9,15 @@
         </li>
 
         <li class="burger" (click)="toggleMenu()">
-          <!-- <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i> -->
-          <picture>
-            <img src="assets/img/588a6507d06f6719692a2d15.png" alt="menu-icon">
-          </picture>
+          <i class="material-icons fa-solid fa-xmark" *ngIf="isMenuOpen"></i>
+          <i class="material-icons fa-solid fa-bars" *ngIf="!isMenuOpen"></i>
         </li>
 
         <li class="menu" [class.is-open]="isMenuOpen">
-          <a class="menu-item" href="">home</a>
-          <a class="menu-item" href="">about Me</a>
-          <a class="menu-item" href="">proyects</a>
-          <a class="menu-item" href="">contact</a>
+          <a class="menu-item navigation" routerLink="/Inicio" (click)="scrollToSection('perfil')">home</a>
+          <a class="menu-item navigation" routerLink="/AboutMe" (click)="scrollToSection('aboutme')">about Me</a>
+          <a class="menu-item navigation" routerLink="/Proyects" (click)="scrollToSection('proyects')">proyects</a>
+          <a class="menu-item navigation" routerLink="/ContactMe" (click)="scrollToSection('contactme')">contact</a>
         </li>
       </ul>
     </nav>

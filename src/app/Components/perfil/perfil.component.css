@@ -1,77 +1,157 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	background: #E9ECF4;
-	color: #000;
-	font-family: 'Roboto', sans-serif;
+  background: #e9ecf4;
+  color: #000;
+  font-family: "Roboto", sans-serif;
 }
 
 .contenedor {
-	width: 90%;
-	max-width: 1000px;
-	margin: 20px auto;
-	display: grid;
-	grid-gap: 20px;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, auto);
+  width: 90%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, auto);
 
-	grid-template-areas:
-             "header header header"
-						 "contenido contenido sidebar"
-						 "widget-1 widget-1 sidebar"
-						 "footer footer footer";
+  grid-template-areas:
+    "header header sidebar"
+    "contenido contenido sidebar"
+    "widget-1 widget-1 widget-1";
 }
 
 .contenedor > div,
 .contenedor .header,
 .contenedor .contenido,
 .contenedor .sidebar {
-	background: #fff;
-	padding: 20px;
-	border-radius: 4px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
 }
 
 .contenedor .header {
-	background: #12203E;
-	color: #fff;
-	grid-area: header;
+  background: #12203e;
+  color: #fff;
+  grid-area: header;
 }
 
 .contenedor .contenido {
-	grid-area: contenido;
+  grid-area: contenido;
 }
 
 .contenedor .sidebar {
-	grid-column: 3 / 4;
-	background: #fAA43D;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100px;
-	grid-area: sidebar;
+  grid-column: 3 / 4;
+  background: #faa43d;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  grid-area: sidebar;
 }
 
-.contenedor .widget-1{
-  grid-column: 3 / 1;
-	background: #55a8fd;
-	color: #fff;
-	height: 100px;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.contenedor .widget-1 {
+  grid-column: 4 / 1;
+  background: #55a8fd;
+  color: #fff;
+  height: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media screen and (max-width: 768px){
-	.contenedor {
-		grid-template-areas:
-             "header header header"
-             "sidebar sidebar sidebar"
-						 "contenido contenido contenido"
-						 "widget-1 widget-1 widget-1"
-	}
+@media screen and (max-width: 768px) {
+  .contenedor {
+    grid-template-areas:
+      "header header header"
+      "sidebar sidebar sidebar"
+      "contenido contenido contenido"
+      "widget-1 widget-1 widget-1";
+  }
+}
+
+/* Area para el contenido del Widget1 */
+ul{
+  position: relative;
+  display: flex;
+  gap: 25px
+}
+ul li{
+  position: relative;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+}
+ul li:hover{
+  width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
+}
+ul li::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: 0.5s;
+
+}
+
+ul li:hover::before{
+  opacity: 1;
+}
+ul li::after{
+  content: '';
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: linear-gradient(45deg, var(--i), var(--j));
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
+  filter: blur(15px);
+}
+ul li:hover::after{
+  opacity: 0.5;
+}
+ul li i{
+  color: #777;
+  font-size:  1.75em !important;
+  transition: 0.5s;
+  transition-delay: 0.25s;
+}
+ul li:hover i{
+  transform: scale(0);
+  font-size: 1.75em;
+  transition-delay: 0.25s;
+}
+ul li span{
+  position: absolute;
+}
+ul li .titulo{
+  color: #fff;
+  font-size: 1.1em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transform: scale(0);
+  transition: 0.5s;
+  transition-delay: 0s;
+}
+ul li:hover .titulo{
+  transform: scale(1);
+  transition-delay: 0.25s;
 }
